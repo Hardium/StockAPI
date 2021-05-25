@@ -1,10 +1,8 @@
 ﻿using DataAccess;
 using Entities;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
-using System;
 
 namespace Business
 {
@@ -12,7 +10,6 @@ namespace Business
     {
         public ProductService(IProductRepository productRepository) : base(productRepository)
         {
-
         }
 
         /// <summary>
@@ -41,6 +38,5 @@ namespace Business
 
             return _repository.AddProductsAsync(product);
         }
-
     }
 }
