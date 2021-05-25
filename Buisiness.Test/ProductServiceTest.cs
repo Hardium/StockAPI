@@ -1,13 +1,10 @@
-using Business;
 using DataAccess;
 using Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity.Infrastructure;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace Business.Tests
 {
@@ -42,9 +39,7 @@ namespace Business.Tests
                     new() { ID = 6, Name = "MockProduct6", EAN = "EAN02122", ValidFrom = new DateTime(2021, 02, 01), ValidTo = new DateTime(2021, 02, 15) }
                 };
             testDataProduct.ForEach(p => productService.AddProductsAsync(p));
-
         }
-
 
         [TestMethod()]
         public void GetAllProducts()
