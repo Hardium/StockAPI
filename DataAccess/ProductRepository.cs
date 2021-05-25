@@ -1,9 +1,7 @@
-﻿using Entities;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
+using Entities;
 
 namespace DataAccess
 {
@@ -15,7 +13,7 @@ namespace DataAccess
         }
 
         /// <summary>
-        /// Permet de récuperer tous les produits
+        ///     Permet de récuperer tous les produits
         /// </summary>
         /// <returns></returns>
         public IQueryable<Product> GetAllProducts()
@@ -24,7 +22,7 @@ namespace DataAccess
         }
 
         /// <summary>
-        /// Permet de récuperer un produit grace à son identifiant technique
+        ///     Permet de récuperer un produit grace à son identifiant technique
         /// </summary>
         /// <returns></returns>
         public async Task<Product> GetProductById(int id)
@@ -33,7 +31,7 @@ namespace DataAccess
         }
 
         /// <summary>
-        /// Permet d'ajout le produit <paramref name="product"/>
+        ///     Permet d'ajout le produit <paramref name="product" />
         /// </summary>
         /// <param name="product"></param>
         /// <returns>Retourn le produit ajouté</returns>

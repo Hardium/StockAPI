@@ -1,6 +1,6 @@
-﻿using Entities;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
+using Entities;
 
 namespace Business
 {

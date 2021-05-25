@@ -1,21 +1,20 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
 namespace Entities
 {
     /// <summary>
-    /// Représente les propriétés technique.
+    ///     Représente les propriétés technique.
     /// </summary>
     public class BaseEntity
     {
         /// <summary>
-        /// Identifiant technique
+        ///     Identifiant technique
         /// </summary>
         public int ID { get; set; }
 
         /// <summary>
-        /// Date de creation de la ligne
+        ///     Date de creation de la ligne
         /// </summary>
         [JsonIgnore]
         public DateTime CreationDate { get; set; }

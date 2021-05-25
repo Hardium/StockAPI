@@ -1,8 +1,8 @@
-﻿using DataAccess;
-using Entities;
-using System;
+﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
+using DataAccess;
+using Entities;
 
 namespace Business
 {
@@ -13,7 +13,7 @@ namespace Business
         }
 
         /// <summary>
-        /// Permet de récupérer l'ensemble des produits
+        ///     Permet de récupérer l'ensemble des produits
         /// </summary>
         /// <returns></returns>
         public IQueryable<Product> GetAllProducts()
@@ -27,14 +27,15 @@ namespace Business
         }
 
         /// <summary>
-        /// Permet d'ajouter le produit <paramref name="product"/> en base.
+        ///     Permet d'ajouter le produit <paramref name="product" /> en base.
         /// </summary>
         /// <param name="product"></param>
         /// <returns></returns>
         public Task<Product> AddProductsAsync(Product product)
         {
             if (product.ValidFrom > product.ValidTo)
-                throw new ArgumentException("La date de début ne peut être supérieur à la date de fin de validité du produit");
+                throw new ArgumentException(
+                    "La date de début ne peut être supérieur à la date de fin de validité du produit");
 
             return _repository.AddProductsAsync(product);
         }

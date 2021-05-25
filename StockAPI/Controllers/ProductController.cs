@@ -1,9 +1,9 @@
-﻿using Business;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using Business;
 using Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace StockAPI.Controllers
 {
@@ -11,7 +11,6 @@ namespace StockAPI.Controllers
     [ApiController]
     public class ProductController : ControllerBase
     {
-
         private readonly IProductService _productService;
 
         public ProductController(IProductService productService)
@@ -25,10 +24,7 @@ namespace StockAPI.Controllers
         {
             var product = await _productService.GetProductById(id);
 
-            if (product == null)
-            {
-                return NotFound();
-            }
+            if (product == null) return NotFound();
 
             return product;
         }
@@ -45,8 +41,8 @@ namespace StockAPI.Controllers
         [HttpPost]
         public async Task<ActionResult<Product>> PostProduct(Product newProduct)
         {
-            Product product = await _productService.AddProductsAsync(newProduct);
-            return CreatedAtAction("GetProduct", new { id = product.ID }, product);
+            var product = await _productService.AddProductsAsync(newProduct);
+            return CreatedAtAction("GetProduct", new {id = product.ID}, product);
         }
     }
 }
